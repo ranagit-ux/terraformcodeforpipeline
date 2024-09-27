@@ -1,0 +1,74 @@
+name: secondpipeline
+pool: Rana
+trigger: none
+stages:
+  - stage: terraforminstall
+    displayName: terraformintall
+    jobs:
+      - job: terraformintall
+        steps:
+          - task: TerraformInstaller@1
+            inputs:
+              terraformVersion: 'latest'
+          - task: TerraformTaskV4@4
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
+              backendServiceArm: 'firstpool'
+              backendAzureRmResourceGroupName: 'bhai_delete_mat_karna'
+              backendAzureRmStorageAccountName: 'dontdeletepleasss'
+              backendAzureRmContainerName: 'deletematkarna'
+              backendAzureRmKey: 'terraform.tfstate'
+          - task: TerraformTaskV4@4
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
+              environmentServiceNameAzureRM: 'firstpool'
+  - stage: TerraformPlan
+    dependsOn: terraforminstall
+    displayName: Terraformaplan
+    jobs:
+      - job: TerraformPlan
+        displayName: Terraformaplan
+        steps:
+          - task: TerraformTaskV4@4
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
+              backendServiceArm: 'firstpool'
+              backendAzureRmResourceGroupName: 'bhai_delete_mat_karna'
+              backendAzureRmStorageAccountName: 'dontdeletepleasss'
+              backendAzureRmContainerName: 'deletematkarna'
+              backendAzureRmKey: 'terraform.tfstate'
+          - task: TerraformTaskV4@4
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
+              environmentServiceNameAzureRM: 'firstpool'
+  - stage: Terraformapply
+    dependsOn: TerraformPlan
+    displayName: Terraform apply
+    jobs:
+      - job: Terraformapply
+        displayName: Terraformapply
+        steps:
+          - task: TerraformTaskV4@4
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
+              backendServiceArm: 'firstpool'
+              backendAzureRmResourceGroupName: 'bhai_delete_mat_karna'
+              backendAzureRmStorageAccountName: 'dontdeletepleasss'
+              backendAzureRmContainerName: 'deletematkarna'
+              backendAzureRmKey: 'terraform.tfstate'
+          - task: TerraformTaskV4@4
+            inputs:
+              provider: 'azurerm'
+              command: 'apply'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
+              environmentServiceNameAzureRM: 'firstpool'
