@@ -1,13 +1,13 @@
 rg = {
   rg1 = {
-    rgname   = "firstrgwithpipeline"
+    rgname   = "firstrgwithpipeline12345"
     location = "westus"
   }
 }
 
 newstorage={
   st1={
-    storagename= "storageaccount12345"
+    storagename= "storageaccount123456"
     location= "westus"
     resource_group_name = "firstrgwithpipeline"
     account_tier = "Standard"
