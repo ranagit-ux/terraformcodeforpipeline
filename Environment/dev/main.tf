@@ -4,6 +4,7 @@ module "Resource_group" {
   
 }
 module "Storage_account" {
+    depends_on = [ module.Resource_group ]
     source = "../../module/storage_account"
   storage_var=var.newstorage
 }
