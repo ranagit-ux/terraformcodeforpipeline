@@ -16,9 +16,9 @@ stages:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
               backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'bhai_delete_mat_karna'
-              backendAzureRmStorageAccountName: 'dontdeletepleasss'
-              backendAzureRmContainerName: 'deletematkarna'
+              backendAzureRmResourceGroupName: 'pipelinerg'
+              backendAzureRmStorageAccountName: 'storagepipelinefirst4'
+              backendAzureRmContainerName: 'newcontainer'
               backendAzureRmKey: 'terraform.tfstate'
           - task: TerraformTaskV4@4
             inputs:
@@ -39,9 +39,9 @@ stages:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
               backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'bhai_delete_mat_karna'
-              backendAzureRmStorageAccountName: 'dontdeletepleasss'
-              backendAzureRmContainerName: 'deletematkarna'
+              backendAzureRmResourceGroupName: 'pipelinerg'
+              backendAzureRmStorageAccountName: 'storagepipelinefirst4'
+              backendAzureRmContainerName: 'newcontainer'
               backendAzureRmKey: 'terraform.tfstate'
           - task: TerraformTaskV4@4
             inputs:
@@ -62,9 +62,9 @@ stages:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
               backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'bhai_delete_mat_karna'
-              backendAzureRmStorageAccountName: 'dontdeletepleasss'
-              backendAzureRmContainerName: 'deletematkarna'
+              backendAzureRmResourceGroupName: 'pipelinerg'
+              backendAzureRmStorageAccountName: 'storagepipelinefirst4'
+              backendAzureRmContainerName: 'newcontainer'
               backendAzureRmKey: 'terraform.tfstate'
           - task: TerraformTaskV4@4
             inputs:
