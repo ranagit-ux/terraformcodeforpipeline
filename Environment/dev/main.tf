@@ -4,6 +4,6 @@ module "Resource_group" {
   
 }
 module "Storage_account" {
-    source = "../../../module/storage_account"
+    source = "../../module/storage_account"
   storage_var=var.newstorage
 }
