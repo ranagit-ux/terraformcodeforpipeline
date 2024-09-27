@@ -7,7 +7,7 @@ rg = {
 
 newstorage={
   st1={
-    storagename= "storageaccount"
+    storagename= "storageaccount12345"
     location= "westus"
     resource_group_name = "firstrgwithpipeline"
     account_tier = "Standard"
