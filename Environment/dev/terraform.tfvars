@@ -4,3 +4,14 @@ rg = {
     location = "westus"
   }
 }
+
+newstorage={
+  st1={
+    storagename= "storageaccount"
+    location= "westus"
+    resource_group_name = "firstrgwithpipeline"
+    account_tier = "Standard"
+    account_replication_type="LRS"
+  }
+}
+
