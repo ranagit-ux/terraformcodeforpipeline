@@ -1,6 +1,6 @@
 rg = {
   rg1 = {
-    rgname   = "firstrgwithpipeline12345"
+    rgname   = "firstrgwithpipeline123456"
     location = "westus"
   }
 }
