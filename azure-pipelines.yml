@@ -16,9 +16,9 @@ stages:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
               backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'pipelinerg'
-              backendAzureRmStorageAccountName: 'storagepipelinefirst4'
-              backendAzureRmContainerName: 'newcontainer'
+              backendAzureRmResourceGroupName: 'pipeline'
+              backendAzureRmStorageAccountName: 'storagepipelinefirst5'
+              backendAzureRmContainerName: 'pipecontainer'
               backendAzureRmKey: 'terraform.tfstate'
           - task: TerraformTaskV4@4
             inputs:
@@ -39,9 +39,9 @@ stages:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
               backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'pipelinerg'
-              backendAzureRmStorageAccountName: 'storagepipelinefirst4'
-              backendAzureRmContainerName: 'newcontainer'
+              backendAzureRmResourceGroupName: 'pipeline'
+              backendAzureRmStorageAccountName: 'storagepipelinefirst5'
+              backendAzureRmContainerName: 'pipecontainer'
               backendAzureRmKey: 'terraform.tfstate'
           - task: TerraformTaskV4@4
             inputs:
