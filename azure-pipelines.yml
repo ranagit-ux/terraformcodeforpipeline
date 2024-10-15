@@ -1,74 +1,14 @@
-name: secondpipeline
-pool: Rana
+name: thridpipeline
+pool:autopool
 trigger: none
 stages:
-  - stage: terraforminstall
-    displayName: terraformintall
+  - stage: 
     jobs:
-      - job: terraformintall
+      - job: 
         steps:
-          - task: TerraformInstaller@1
-            inputs:
-              terraformVersion: 'latest'
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'init'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
-              backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'pipeline'
-              backendAzureRmStorageAccountName: 'storagepipelinefirst5'
-              backendAzureRmContainerName: 'pipecontainer'
-              backendAzureRmKey: 'terraform.tfstate'
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'plan'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
-              environmentServiceNameAzureRM: 'firstpool'
-  - stage: TerraformPlan
-    dependsOn: terraforminstall
-    displayName: Terraformaplan
-    jobs:
-      - job: TerraformPlan
-        displayName: Terraformaplan
-        steps:
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'init'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
-              backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'pipeline'
-              backendAzureRmStorageAccountName: 'storagepipelinefirst5'
-              backendAzureRmContainerName: 'pipecontainer'
-              backendAzureRmKey: 'terraform.tfstate'
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'plan'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
-              environmentServiceNameAzureRM: 'firstpool'
-  - stage: Terraformapply
-    dependsOn: TerraformPlan
-    displayName: Terraform apply
-    jobs:
-      - job: Terraformapply
-        displayName: Terraformapply
-        steps:
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'init'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
-              backendServiceArm: 'firstpool'
-              backendAzureRmResourceGroupName: 'pipelinerg'
-              backendAzureRmStorageAccountName: 'storagepipelinefirst4'
-              backendAzureRmContainerName: 'newcontainer'
-              backendAzureRmKey: 'terraform.tfstate'
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'apply'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
-              environmentServiceNameAzureRM: 'firstpool'
+          - 
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+
